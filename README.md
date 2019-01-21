@@ -31,7 +31,7 @@ json2table-schema /path/to/example.json
 ## Example
 
 ```sh
-$ node src/json2schema.js ./example/eg6.json | jq
+$ json2table-schema ./example/eg6.json | jq
 {
   "fields": [
     {
