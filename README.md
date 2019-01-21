@@ -42,4 +42,3 @@ $ node src/json2schema.js ./example/eg6.json | jq
     },
 ...
 ```
-
