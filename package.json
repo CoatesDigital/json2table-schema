@@ -1,0 +1,39 @@
+{
+  "name": "json2table-schema",
+  "version": "1.0.0",
+  "description": "Generate a table schema given sample json",
+  "scripts": {
+    "lint": "tslint -p .",
+    "lint-fix": "tslint --fix -p .",
+    "watch-node": "nodemon dist/service.js",
+    "start": "node dist/service.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "test": "jest"
+  },
+  "bin": {
+    "json2table-schema": "./src/json2schema.js"
+  },
+  "author": "Dean Rather",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^5.0.0",
+    "csv2json": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.31",
+    "@types/jest": "^23.3.10",
+    "@types/lodash": "^4.14.119",
+    "@types/node": "^10.12.15",
+    "concurrently": "^4.1.0",
+    "jest": "^23.6.0",
+    "lodash": "^4.17.11",
+    "lodash.camelcase": "^4.3.0",
+    "nodemon": "^1.18.9",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.2.2"
+  }
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "col1": "r1c1"
+    },
+    {
+        "col1": "r2c1",
+        "col2": "r2c2"
+    },
+    {
+        "col3": "r3c3"
+    },
+    {
+        "nested thing": {
+            "so nested": {
+                "lets keep going": "ok that's enough"
+            }
+        }
+    },
+    {
+        "some integer": 5,
+        "some float": 1.23,
+        "some bool": true,
+        "another bool": false,
+        "type test": "a string"
+    },
+    {
+        "a different row that has the same key as one of the above but a different type in it": "coming up",
+        "type test": 99
+    }
+]

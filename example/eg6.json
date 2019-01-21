@@ -1,0 +1,37 @@
+[
+    {
+        "plainCol": "plain column",
+        "col with spaces": "col with spaces",
+        "col.with.dots": "column with dots",
+        "col_with_underscores": "col with underscores",
+        "col@with@ampersands": "col with ampersands",
+        "col[with]bracers": "col with bracers",
+        "col?with?questionMarks": "col with question marks"
+    },
+    {
+        "col1": "r2c1",
+        "col 3 contains an array": [
+            1,
+            2,
+            true,
+            false,
+            "hello",
+            {
+                "nested object": "can do"
+            }
+        ]
+    },
+    {
+        "col1": "r3c1",
+        "col2": {
+            "myObjectKey": "myObjectVal"
+        },
+        "col3": {
+            "lets's get nested": {
+                "we have to go deeper": {
+                    "deep enough?": true
+                }
+            }
+        }
+    }
+]
