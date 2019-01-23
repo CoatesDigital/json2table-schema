@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "camelcase": "^5.0.0",
-    "csv2json": "^1.4.2"
+    "fs.promised": "^3.0.0",
+    "json2csv": "^4.3.3"
   },
   "devDependencies": {
     "@types/debug": "0.0.31",

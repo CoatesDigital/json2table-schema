@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs').promises;
+// const fs = require('fs').promises;
+const fs = require('fs.promised');
 const json2csv = require('json2csv').parse;
 const camelcase = require('camelcase');
 
@@ -84,7 +85,7 @@ async function main() {
     }
 
     const output = {fields};
-    console.log(JSON.stringify(output));
+    console.log(JSON.stringify(output, null, 2));
     // TODO: warn if any key is over 155 chars (Google BigQuery's limit)
     // TODO: warn if any keys are the same as other keys. (potentially possible as I'm stripping out illegal chars)
 }
