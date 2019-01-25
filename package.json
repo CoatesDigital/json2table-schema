@@ -1,6 +1,6 @@
 {
   "name": "json2table-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate a table schema given sample json",
   "scripts": {
     "lint": "tslint -p .",
