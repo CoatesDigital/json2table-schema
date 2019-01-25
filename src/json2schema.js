@@ -3,7 +3,7 @@
 // const fs = require('fs').promises;
 const fs = require('fs.promised');
 const json2csv = require('json2csv').parse;
-const camelcase = require('camelcase');
+const camelcase = require('lodash.camelcase');
 
 const arr2obj = function (array) {
     let thisEleObj = new Object();
@@ -42,6 +42,7 @@ async function main() {
     // the list of columns this will generate
     // I want the result to have each json keyname in camelCase, and the separator to be underscores
     // but because underscores will get camelcased
+    // const TEMP_SEPARATOR = '@@@'
     const TEMP_SEPARATOR = '@@@'
     const csv = json2csv(jsonNoArrays, { flatten: true, flattenSeparator: TEMP_SEPARATOR})
 
@@ -56,11 +57,12 @@ async function main() {
     // so ill replace dots with tildes, then underscores
     const columnHeaders = headerRow.split(',')
     for (let columnHeader of columnHeaders){
+
+
+
         let jsonPath = columnHeader;
         jsonPath = jsonPath.replace(/"/g, '');              // strip out doublequotes
         let pathParts = jsonPath.split(TEMP_SEPARATOR);
-
-
         // wrap any parts that have spaces in them in [bracers]
         for (pathPartIndex in pathParts) {
             let pathPart = pathParts[pathPartIndex];
@@ -70,14 +72,20 @@ async function main() {
             pathParts[pathPartIndex] = pathPart;
         }
         jsonPath = pathParts.join('.');
-
         jsonPath = jsonPath.replace(/\.([\d]+)/g, '[$1]');     // replace dot-number with openbrace-number-closebrace
+
+
         let name = columnHeader;
-        name = camelcase(name);
-        let replace = `/${TEMP_SEPARATOR}/g`;
-        name = name.replace(replace, '_');
+        name = name.replace(/"/g, '');              // strip out doublequotes
+        let nameParts = name.split(TEMP_SEPARATOR);
+        for (namePartIndex in nameParts) {
+            let namePart = nameParts[namePartIndex];
+            nameParts[namePartIndex] = camelcase(namePart);
+        }
+        name = nameParts.join('_');
         name = name.replace(/[^0-9a-zA-Z_]/g, '');
         
+
         let description = ''; // TODO: you have to add these manually
         let type = 'string'; // TODO: you have to change these manually to either: string, number, integer, boolean, or something else https://frictionlessdata.io/specs/table-schema/
 
